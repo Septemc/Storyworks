@@ -1,0 +1,205 @@
+{
+    "developer_mode": {
+        "tab_basic": {
+            "f_name": "林启明",
+            "f_identity": "云岭村少年发明者",
+            "f_tier": "凡人",
+            "f_desc": "17岁，依靠废旧零件自制联网终端，是当前剧情的核心行动者。"
+        },
+        "tab_knowledge": {
+            "f_personality": "高智商、强执行、抗压强，面对未知世界保持谨慎探索姿态。",
+            "f_appearance": "身形偏瘦，衣着简朴，常背工具包，手部有长期维修留下的细小划痕。",
+            "f_bg": "出身偏远山区，自学电子与机械改装，三年内拼装出可联网设备并由此卷入更大叙事。"
+        },
+        "tab_secrets": {
+            "f_trauma": "长期被周围人视作异想天开，形成对失败与嘲讽的敏感反应。",
+            "f_h_ident": [
+                {
+                    "name": "异常技术适配者",
+                    "detail": "对陌生系统与设备有异常快速的理解能力。"
+                }
+            ]
+        },
+        "tab_attributes": {
+            "f_core_stats": {
+                "strength": 4,
+                "agility": 6,
+                "constitution": 5,
+                "intelligence": 9,
+                "willpower": 8,
+                "perception": 8,
+                "summary": "智力与意志突出，体能处于普通偏上。"
+            },
+            "f_health": {
+                "physical": "轻度疲劳",
+                "mental": "高度专注",
+                "injuries": [],
+                "status_effects": [
+                    "短时睡眠不足"
+                ],
+                "energy": "中等",
+                "stability": "可控"
+            }
+        },
+        "tab_relations": {
+            "f_rel_graph": [
+                {
+                    "target": "yunling_villagers",
+                    "relation": "同乡",
+                    "attitude": "复杂",
+                    "detail": "有人支持，有人质疑其发明行为。",
+                    "visibility": "player_known"
+                }
+            ]
+        },
+        "tab_inventory": {
+            "f_equip": [
+                {
+                    "name": "自制便携终端",
+                    "slot": "device",
+                    "quality": "改装品",
+                    "desc": "由废旧零件拼装，当前已实现初步联网。"
+                }
+            ],
+            "f_items": [
+                {
+                    "name": "焊接工具包",
+                    "count": 1,
+                    "type": "tool",
+                    "desc": "包含焊笔、导线和基础测量器件。"
+                }
+            ]
+        },
+        "tab_skills": {
+            "f_skills": [
+                {
+                    "name": "电子拼装",
+                    "type": "craft",
+                    "level": "精通",
+                    "desc": "可利用低成本材料快速搭建可用电路系统。"
+                }
+            ]
+        },
+        "tab_fortune": {
+            "f_destiny": {
+                "core": [
+                    "时代触发者"
+                ],
+                "latent": [
+                    "跨文明技术桥梁"
+                ]
+            },
+            "f_fate_lines": [
+                {
+                    "title": "第一次外界连接",
+                    "trigger": "联网设备被外部节点主动回应",
+                    "direction": "主线升级",
+                    "detail": "将推动其从地方叙事进入高维冲突。"
+                }
+            ]
+        },
+        "character_id": "lin_qiming",
+        "template_id": "comprehensive_character_v1",
+        "type": "player"
+    },
+    "player_mode": {
+        "tab_basic": {
+            "f_name": "林启明",
+            "f_identity": "山村少年",
+            "f_tier": "凡人",
+            "f_desc": "刚完成联网实验的少年发明者。"
+        },
+        "tab_knowledge": {
+            "f_personality": "谨慎、专注、好奇心强。",
+            "f_appearance": "衣着朴素，常背工具包。",
+            "f_bg": "来自云岭村，长期自行研究机械与电子改装。"
+        },
+        "tab_secrets": {
+            "f_trauma": "未知",
+            "f_h_ident": [
+                {
+                    "__unknown__": true,
+                    "value": "未知"
+                }
+            ]
+        },
+        "tab_attributes": {
+            "f_core_stats": {
+                "__unknown__": true,
+                "value": "未知"
+            },
+            "f_health": {
+                "physical": "略疲惫",
+                "mental": "兴奋",
+                "injuries": [],
+                "status_effects": [],
+                "energy": "中等",
+                "stability": "可控"
+            }
+        },
+        "tab_relations": {
+            "f_rel_graph": [
+                {
+                    "target": "yunling_villagers",
+                    "relation": "同乡",
+                    "attitude": "复杂",
+                    "detail": "并非所有人都理解他的发明。",
+                    "visibility": "player_known"
+                }
+            ]
+        },
+        "tab_inventory": {
+            "f_equip": [
+                {
+                    "name": "自制便携终端",
+                    "slot": "device",
+                    "quality": "改装品",
+                    "desc": "正在使用中的核心设备。"
+                }
+            ],
+            "f_items": [
+                {
+                    "name": "焊接工具包",
+                    "count": 1,
+                    "type": "tool",
+                    "desc": "常用维修工具。"
+                }
+            ]
+        },
+        "tab_skills": {
+            "f_skills": [
+                {
+                    "name": "电子拼装",
+                    "type": "craft",
+                    "level": "熟练",
+                    "desc": "可独立处理基础硬件装配与故障。"
+                }
+            ]
+        },
+        "tab_fortune": {
+            "f_destiny": {
+                "__unknown__": true,
+                "value": "未知"
+            },
+            "f_fate_lines": {
+                "__unknown__": true,
+                "value": "未知"
+            }
+        },
+        "character_id": "lin_qiming",
+        "template_id": "comprehensive_character_v1",
+        "type": "player"
+    },
+    "meta": {
+        "last_synced_segment_id": "S_1774534868833_222108_51571ef2_9de9f99d_1",
+        "sync_reason": "故事开场首次正式介绍核心角色。",
+        "status": "active",
+        "source_type": "dynamic",
+        "developer_name": "林启明",
+        "player_name": "林启明",
+        "template_snapshot": {
+            "id": "comprehensive_character_v1",
+            "name": "默认通用角色模板"
+        }
+    }
+}
