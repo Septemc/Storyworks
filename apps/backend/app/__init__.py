@@ -1,1 +1,0 @@
-"""Storyworks backend package."""
