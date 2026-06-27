@@ -1,249 +1,123 @@
-# Storyworks
+# Storyworks 统一创作工作台
 
-Storyworks 是一个面向互动叙事创作的独立辅助生成器，用于生成、编辑、整理和导出四类核心创作资产：
+Storyworks 是面向互动叙事、修仙世界观和长篇剧本创作的统一工作台。当前主线应用已经合并为一个前端、一个后端和一个 SQLite 数据库，覆盖项目管理、世界书、人物卡、剧本、预设、AI 生成与迭代、跨模块引用、版本历史和导出。
 
-- 世界书
-- 人物卡
-- 剧本
-- 预设
+旧的多模块应用目录和启动脚本仍保留作兼容参考；日常开发、验证和使用请以统一应用为主线。
 
-它不是剧情运行引擎，也不是检索平台或主项目中台，而是一个专注于“结构化创作资产沉淀”的独立工坊。
-
-## 项目定位
-
-Storyworks 的目标是把原本分散的世界设定、角色设定、剧情约束和风格偏好，整理成可保存、可编辑、可导出、可复用的标准化资产。
-
-当前版本聚焦以下能力：
-
-- 项目管理
-- 世界书条目创建、编辑、草稿生成、导出
-- 人物卡模板驱动编辑、双视图生成、导出
-- 剧本结构化编辑、草稿生成、导出
-- 预设创建、测试、导出
-
-## 当前技术栈
-
-- 前端：Vue 3 + Vite + TypeScript + Pinia + Vue Router
-- 后端：FastAPI + SQLAlchemy + SQLite
-- 默认数据库：本地 SQLite
-
-## 当前模块状态
-
-### 已完成
-
-- 项目基础框架
-- 世界书模块
-- 人物卡模块
-- 剧本模块
-- 预设模块
-- 前端中文化界面
-- 基础设置页与首页总览
-- JSON / Markdown 导出
-
-### 当前定位边界
-
-- 不负责检索系统
-- 不负责剧情运行时拼装
-- 不负责复杂主项目架构集成
-- 不负责多人协同与权限治理
-
-## 目录结构
+## 当前主线
 
 ```text
-Storyworks/
-├─ apps/
-│  ├─ frontend/            # Vue 前端
-│  └─ backend/             # FastAPI 后端
-├─ docs/                   # 设计文档、阶段任务书、阶段总结
-├─ reference_code/         # 参考代码
-└─ README.md
+apps/
+  backend/        FastAPI 统一后端
+  frontend/       Vue 3 + Vite + Vuetify 3 统一前端
+data/
+  storyworks.db   统一 SQLite 数据库
+shared/
+  config.py       全局配置读取
+docs/
+  Codex超长线目标Spec-Storyworks全面完善.md
 ```
 
-## 快速开始
+## 快速启动
 
-### 1. 克隆项目
+### Windows
+
+双击或运行：
+
+```bat
+start.bat
+```
+
+默认地址：
+
+- 前端：http://localhost:3000
+- 后端：http://127.0.0.1:8000
+
+### macOS / Linux / Git Bash
 
 ```bash
-git clone <your-repo-url>
-cd Storyworks
+./start.sh
 ```
 
-### 2. 启动后端
+## 手动开发
+
+后端：
 
 ```bash
 cd apps/backend
-python -m venv .venv
-.venv\Scripts\activate
 pip install -r requirements.txt
-copy .env.example .env
-uvicorn app.main:app --reload --host 127.0.0.1 --port 8000
+python run.py --port 8000
 ```
 
-后端默认地址：
-
-```text
-http://127.0.0.1:8000
-```
-
-### 3. 启动前端
+前端：
 
 ```bash
 cd apps/frontend
 npm install
-copy .env.example .env
-npm run dev
+npm run dev -- --host 127.0.0.1 --port 3000
 ```
 
-前端默认地址：
+## 验证命令
 
-```text
-http://127.0.0.1:5173
-```
-
-前端默认通过 `VITE_API_BASE_URL` 连接后端，默认值为：
-
-```text
-http://127.0.0.1:8000
-```
-
-## 环境变量
-
-### 后端 `apps/backend/.env`
-
-可参考：
-
-```env
-STORYWORKS_APP_NAME=Storyworks Backend
-STORYWORKS_ENV=development
-STORYWORKS_DEBUG=true
-STORYWORKS_HOST=127.0.0.1
-STORYWORKS_PORT=8000
-STORYWORKS_DATABASE_URL=
-```
-
-说明：
-
-- 如果 `STORYWORKS_DATABASE_URL` 为空，后端会自动使用本地 SQLite 数据库。
-- 默认数据库文件位于 `apps/backend/data/storyworks.db`。
-
-### 前端 `apps/frontend/.env`
-
-```env
-VITE_API_BASE_URL=http://127.0.0.1:8000
-```
-
-## 常用命令
-
-### 前端
+后端：
 
 ```bash
-cd apps/frontend
-npm run dev
-npm run build
-npm run preview
+python -m compileall apps/backend/app
+python -m pytest apps/backend/tests
 ```
 
-### 后端
-
-```bash
-cd apps/backend
-uvicorn app.main:app --reload --host 127.0.0.1 --port 8000
-pytest
-```
-
-## 当前页面入口
-
-前端当前包含以下主要页面：
-
-- 总览
-- 项目
-- 世界书
-- 人物卡
-- 剧本
-- 预设
-- 设置
-
-## 资产说明
-
-### 世界书
-
-用于记录世界观设定，当前支持分类条目、结构化字段编辑、草稿生成与导出。
-
-推荐分类包括：
-
-- 历史
-- 地理
-- 政治
-- 人文
-- 风俗
-- 科学
-- 经济
-- 宗教
-- 阵营
-- 制度
-
-### 人物卡
-
-用于创建结构化角色资料，当前采用默认通用角色模板，并支持：
-
-- `developer_mode` 创作视图
-- `player_mode` 玩家视图
-
-### 剧本
-
-用于约束剧情发展，当前支持：
-
-- 故事概念输入
-- 结构化大纲编辑
-- 章节与场景卡字段维护
-- 剧情约束记录
-
-### 预设
-
-用于控制文风、质量、偏好与输出方向，当前支持：
-
-- 预设草稿生成
-- 预设测试
-- 风格参数编辑
-- 导出
-
-## 测试与验证
-
-当前项目已验证以下命令可正常通过：
+前端：
 
 ```bash
 cd apps/frontend
 npm run build
 ```
 
-```bash
-cd apps/backend
-pytest
+## 功能范围
+
+- 项目管理：统一项目入口、项目切换、编辑、归档/恢复、确认删除、demo 重置和项目级数据隔离。
+- 世界书：分类、条目、Markdown 正文、关系、图谱、AI 生成与迭代、版本历史、导出。
+- 人物卡：Developer / Player 双视角、9 个通用核心分类、字段可见性、角色关系、世界书关联、AI 生成与迭代。
+- 剧本：层级节点、Markdown 正文、角色与世界书引用、AI 生成与迭代、版本历史、导出。
+- 预设：维度、文本块、应用场景、编译提示词、AI 生成/整理/迭代、组合与导出。
+
+## AI 配置
+
+复制 `config.example.json` 为本地 `config.json`，再填写自己的 AI 服务信息：
+
+```json
+{
+  "ai": {
+    "provider": "openai_compatible",
+    "baseUrl": "https://example.com/v1",
+    "apiKey": "your-api-key",
+    "model": "your-model"
+  }
+}
 ```
 
-## 文档索引
+不要把真实 API Key 提交到仓库。`config.json` 已作为本地文件忽略；也可以完全不写入文件，改用环境变量：
 
-核心文档位于 [`docs/`](/f:/_WorkSpace/Projects/Storyworks/docs)：
+```bash
+STORYWORKS_AI_BASE_URL=https://example.com/v1
+STORYWORKS_AI_API_KEY=your-api-key
+STORYWORKS_AI_MODEL=your-model
+```
 
-- [Storyworks项目全面设计文档.md](/f:/_WorkSpace/Projects/Storyworks/docs/Storyworks项目全面设计文档.md)
-- [Storyworks阶段开发任务书.md](/f:/_WorkSpace/Projects/Storyworks/docs/阶段开发/Storyworks阶段开发任务书.md)
-- [阶段01_开发总结.md](/f:/_WorkSpace/Projects/Storyworks/docs/阶段开发/阶段01_开发总结.md)
-- [阶段02_开发总结.md](/f:/_WorkSpace/Projects/Storyworks/docs/阶段开发/阶段02_开发总结.md)
-- [阶段03_开发总结.md](/f:/_WorkSpace/Projects/Storyworks/docs/阶段开发/阶段03_开发总结.md)
-- [阶段04_开发总结.md](/f:/_WorkSpace/Projects/Storyworks/docs/阶段开发/阶段04_开发总结.md)
-- [阶段05_开发总结.md](/f:/_WorkSpace/Projects/Storyworks/docs/阶段开发/阶段05_开发总结.md)
-- [阶段06_开发总结.md](/f:/_WorkSpace/Projects/Storyworks/docs/阶段开发/阶段06_开发总结.md)
+离线验证 AI 工作流时，可以启用 mock provider：
 
-## 后续建议
+```bash
+STORYWORKS_AI_PROVIDER=mock
+```
 
-如果继续推进当前项目，优先级比较高的方向是：
+mock 模式会返回确定性的结构化世界书、人物卡、剧本和预设结果，并写入 AI 历史，便于测试生成、迭代、预览、应用和日志闭环。无 API Key 且未启用 mock 时，普通 CRUD、demo 数据、构建和后端基础测试仍可运行；真实 AI 生成/迭代接口会返回配置错误。
 
-- 统一生成记录页
-- 项目导出包
-- 导入能力补齐
-- 真实 AI 生成服务接入
-- 模板生态扩展
+## 长线完善方向
 
-## License
+当前项目仍处于“统一原型向产品化系统过渡”的阶段。后续应按 `docs/Codex超长线目标Spec-Storyworks全面完善.md` 持续推进：
 
-当前仓库未单独声明许可证。如需开源发布，建议补充明确的 `LICENSE` 文件。
+- 后端拆分 router / service / schema / migration。
+- 前端拆分模块组件、API client 和 composables。
+- 继续强化数据库迁移、引用一致性检查和 demo reset 验收。
+- 完善 AI 预览、应用、版本、日志、回滚闭环。
+- 增加 pytest、前端测试和端到端测试覆盖。

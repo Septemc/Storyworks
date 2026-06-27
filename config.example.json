@@ -1,0 +1,12 @@
+{
+  "ai": {
+    "provider": "openai_compatible",
+    "_provider_note": "Set provider to mock for offline AI workflow tests without an API key.",
+    "baseUrl": "https://example.com/v1",
+    "apiKey": "",
+    "model": "your-model",
+    "temperature": 0.7,
+    "max_tokens": 4096
+  },
+  "projects_dir": "./projects"
+}
